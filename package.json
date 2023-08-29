@@ -1,0 +1,21 @@
+{
+    "name": "ali-ahmadi-faramouj-task",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "npm run build && npx http-server dist -a localhost -o",
+        "build": "tsc && npm run copy-assets",
+        "prebuild": "node -e \"const fs = require('fs'); fs.rmdirSync('dist', { recursive: true, force: true }); fs.mkdirSync('dist');\"",
+        "watch": "tsc -w",
+        "copy-assets": "cpy src/*.html src/*.css dist"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "cpy-cli": "^5.0.0",
+        "http-server": "^14.1.1",
+        "typescript": "^5.2.2"
+    }
+}
